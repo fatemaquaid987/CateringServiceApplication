@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Staff's profile! - {{ super() }}{% endblock %}
+
+{% block body %} 
+Welcome staff!
+<br />
+
+{% if not events_signed %}
+    You have not signed up for any event yet
+    <br />
+{% else %}
+    Events you have signed up for:
+    <ul>
+        
+		{% for e in events_signed %}
+			<li><a href="/event/{{ e.event_name }}">{{ e.event_name }}</a></li>
+		{% endfor %}
+    </ul>
+{% endif %}
+
+{% if not events_not %}
+    No events available to sign up for 
+{% else %}
+	Events you may sign up for. Click event to sign up for it.:
+	<br />
+	<ul>
+			{% for e in events_not %}
+				<li><a href="/event/{{ e.event_name }}">{{ e.event_name }}</a></li>
+			{% endfor %}
+	</ul>
+{% endif %}
+{% endblock %}

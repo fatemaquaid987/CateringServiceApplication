@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Your profile! - {{ super() }}{% endblock %}
+
+{% block body %} Welcome customer. This is your very own profile! 
+Add a new Event:
+<form action="" method="post">
+			Event Name:  <input type="text" name="eventname" value="{{ request.form.eventname}}"/>
+			<br />
+			Event Date:  <input type="date" name="date" value="{{ request.form.date}}"/>
+			<br />
+			Event Venue:  <input type="text" name="venue" value="{{ request.form.venue}}"/>
+			<br />
+			<input type="submit" value="submit" />
+</form>
+<br/>
+{% if not events %}
+    You have not scheduled any event yet 
+{% else %}
+	Here are your scheduled events. Click event to cancel it:
+	<ul>
+			{% for e in events %}
+				<li><a href="/event/{{ e.event_name }}">{{ e.event_name }}</a></li>
+			{% endfor %}
+	</ul>
+{% endif %}
+{% endblock %}

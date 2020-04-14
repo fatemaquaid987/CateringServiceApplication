@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Owner's profile! - {{ super() }}{% endblock %}
+
+{% block body %} 
+Welcome owner!
+<a href="{{ url_for("s_reg") }}">click here to sign up for a new staff account</a>
+<br />
+<br />
+Scheduled Events:
+<ul>
+        {% if not events %}
+            No events scheduled yet
+        {% else %}
+			{% for e in events %}
+				<li>{{ e.event_name }} </li>
+
+				{% if not e.staff1_id and not e.staff2_id and not e.staff3_id %}
+	                staff not assigned for this event
+	            {% else %}
+	                Staff Assigned for this event:
+	                <br />
+	                {{staff_table.query.filter_by(staff_id = e.staff1_id).first().staff_name}}
+	                {{staff_table.query.filter_by(staff_id = e.staff2_id).first().staff_name}}
+	                {{staff_table.query.filter_by(staff_id = e.staff3_id).first().staff_name}}
+				{% endif %}
+			{% endfor %}
+		{% endif %}
+</ul>
+{% endblock %}

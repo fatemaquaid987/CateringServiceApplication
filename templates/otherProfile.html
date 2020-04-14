@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}
+
+{{ name }}'s profile! - {{ super() }}
+
+{% endblock %}
+
+{% block body %}
+
+{% if customer %}
+    This is {{ customer.customer_name }}'s profile page. 
+    <br />
+    Events scheduled by {{ customer.customer_name }}:
+    <ul>
+    {% for e in events %}
+        <li> {{e.event_name}} on {{e.event_date}} at {{e.event_venue}} </li>
+    {% endfor %}
+    </ul>
+
+{% elif staff %}
+    This is {{ staff.staff_name }}'s profile page. 
+    <br />
+
+    Events signed up for by {{ staff.staff_name }}:
+    <ul>
+    {% for e in events %}
+        <li> {{e.event_name}} on {{e.event_date}} at {{e.event_venue}} </li>
+    {% endfor %}
+    <ul>
+{% else %}
+    This is {{ name }}'s profile page. 
+    <br />
+    She is the owner!
+{% endif %}
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}{{ event.event_name }}'s page! - {{ super() }}{% endblock %}
+
+{% block body %} 
+
+This is {{ event.event_name }}'s page. 
+<br />
+Event Name : {{event.event_name}}
+<br />
+Event Date : {{event.event_date}}
+<br />
+Event venue : {{event.event_venue}}
+<br />
+
+{% if button == "cancel" %}
+	<form action="" method="post">
+		<input type="submit" value="cancel event" />
+	</form>
+
+	
+{% elif button == "signup" %}
+        
+	<form action="" method="post">
+		<input type="submit" value="sign up for this event" />
+	</form>
+	
+
+{% endif %}
+
+
+
+{% endblock %}

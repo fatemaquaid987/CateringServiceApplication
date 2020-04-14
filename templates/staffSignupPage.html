@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Staff Sign up! - {{ super() }}{% endblock %}
+
+{% block body %}
+		
+		<form action="" method="post">
+			Staff Username:  <input type="text" name="user" value="{{ request.form.user}}"/>
+			<br />
+			Staff email address: <input type="text" name="email" value="{{ request.form.email}}"/>
+			<br />
+			Staff Password:  <input type="password" name="pass" />
+			<br />
+			<input type="submit" value="submit" />
+		</form>
+{% endblock %}

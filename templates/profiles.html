@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}ALL profiles! - {{ super() }}{% endblock %}
+
+{% block body %}
+	<ul>
+	    Owner:
+	    <br />
+	    <a href="/profile/{{ owner }}">{{ owner }}</a>
+	    <br />
+	    Customer profiles:
+	    <br />
+		{% for u in customers %}
+			<li><a href="/profile/{{ u.customer_name }}">{{ u.customer_name }}</a></li>
+		{% endfor %}
+
+		staff profiles:
+		<br />
+		{% for u in staff %}
+			<li><a href="/profile/{{ u.staff_name }}">{{ u.staff_name }}</a></li>
+		{% endfor %}
+
+
+	</ul>
+{% endblock %}

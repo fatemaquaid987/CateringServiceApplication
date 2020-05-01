@@ -7,10 +7,10 @@ This is a website to help manage a catering company. For this website, there are
 
 ## How to run
 
-Install Python 3.5, Flask, SQLAlchemy and, the Flask-SQLAlchemy extension.
-On Windows open Command prompt or terminal on Mac.  
-Set the FLASK_APP environment variable to your budget.py as: "set FLASK_APP=path/catering.py"  
-Initialize the database using: "flask initdb"  
+Install Python 3.5, Flask, SQLAlchemy and, the Flask-SQLAlchemy extension.  
+Open Command prompt on Windows or terminal on Mac.  
+Set the FLASK_APP environment variable to your catering.py as: "set FLASK_APP=path/catering.py"  
+Initialize the catering.db database using: "flask initdb"  
 Run the application using: "flask run"  
 
 ## Specifications
@@ -23,7 +23,7 @@ Users will always have access to a logout link.
 ### Owner
 Owner can login with the username "owner" and password "pass" which is hardcoded for ease.  
 Once logged in, the Owner will be presented with a link to create new staff accounts, and a list of all scheduled events.  
-For each event, the Staff members signed up to work that event will be listed.  
+For each event, the Staff members signed up to work for that event will be listed.  
 If no events are scheduled, a message will be displayed informing the Owner of this.    
 If any scheduled event has no staff signed up to work, a message will be displayed informing the Owner of this.  
 
